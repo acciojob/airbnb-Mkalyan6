@@ -95,8 +95,14 @@ public class HotelManagementRepository {
 
                    // Now count the bookings made by this aadhar card person and put in hashmap
                    int aadhar=booking.getBookingAadharCard();
+                   String userName=booking.getBookingPersonName();
                    int CountOfBookings=UserBooking.getOrDefault(aadhar,0)+1;
                    UserBooking.put(aadhar,CountOfBookings);
+
+                   // Add this user to user data base , if he is new user of the application
+                   if(!UserDB.containsKey(aadhar)){
+                       UserDB.put(aadhar,new User(aadhar,userName,0));
+                   }
                    return Totalcost;
                }
         }
