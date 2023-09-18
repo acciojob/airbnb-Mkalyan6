@@ -11,8 +11,8 @@ import java.util.List;
 
 @Service
 public class HotelManagementService {
-    @Autowired
-    HotelManagementRepository repository;
+//    @Autowired
+    HotelManagementRepository repository=new HotelManagementRepository();
 
     public String addHotel(Hotel hotel) {
         return  repository.addHotel(hotel);
